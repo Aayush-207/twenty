@@ -25,11 +25,21 @@
   corner-shape: round;
   text-decoration: none;
 
-  &[data-truncate] > .label {
+  &[data-truncate] > .label,
+  &[data-multiline] > .label {
     min-inline-size: 0;
+  }
+  &[data-multiline] {
+    block-size: auto;
+    min-block-size: calc(var(--t-spacing-3) + 2 * var(--t-spacing-1));
+    align-items: flex-start;
   }
   &[data-size='md'] {
     block-size: calc(var(--t-spacing-4) + 2 * var(--t-spacing-1));
+  }
+  &[data-size='md'][data-multiline] {
+    block-size: auto;
+    min-block-size: calc(var(--t-spacing-4) + 2 * var(--t-spacing-1));
   }
   &[data-shape='round'] {
     border-radius: var(--t-border-radius-pill);
