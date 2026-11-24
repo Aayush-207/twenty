@@ -26,6 +26,7 @@ export const Chip = ({
   endElementDivider = false,
   maxWidth,
   truncate = true,
+  lineClamp,
   tooltipContent,
   tooltipDelay,
   isTooltipMultiline,
@@ -46,7 +47,16 @@ export const Chip = ({
   return useRender({
     render,
     ref,
-    state: { size, variant, color, shape, weight, clickable, truncate },
+    state: {
+      size,
+      variant,
+      color,
+      shape,
+      weight,
+      clickable,
+      truncate,
+      multiline: isDefined(lineClamp),
+    },
     props: {
       ...props,
       onClick,
@@ -68,7 +78,7 @@ export const Chip = ({
               render={<span />}
               className={styles.label}
               style={size === 'md' ? MEDIUM_LABEL_STYLE : undefined}
-              truncate={truncate}
+              {...(isDefined(lineClamp) ? { lineClamp } : { truncate })}
               tooltipDelay={tooltipDelay}
               isTooltipMultiline={isTooltipMultiline}
               tooltipPlace={tooltipPlace}

@@ -110,4 +110,15 @@ describe('Chip content and composition', () => {
       'https://twenty.com',
     );
   });
+
+  it('applies multiline data attribute when lineClamp is provided', () => {
+    render(
+      <Chip lineClamp={2} data-testid="multiline-chip">
+        A long multiline title that should wrap across two lines
+      </Chip>,
+    );
+
+    const chip = screen.getByTestId('multiline-chip');
+    expect(chip).toHaveAttribute('data-multiline');
+  });
 });

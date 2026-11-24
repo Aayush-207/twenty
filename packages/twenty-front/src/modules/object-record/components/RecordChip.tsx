@@ -26,6 +26,7 @@ type RecordChipProps = {
   isIconHidden?: boolean;
   triggerEvent?: TriggerEventType;
   onClick?: (event: MouseEvent) => void;
+  lineClamp?: number;
 };
 
 export const RecordChip = ({
@@ -41,6 +42,7 @@ export const RecordChip = ({
   isIconHidden = false,
   triggerEvent = 'MOUSE_DOWN',
   onClick,
+  lineClamp,
 }: RecordChipProps) => {
   const { recordChipData } = useRecordChipData({
     objectNameSingular,
@@ -76,6 +78,7 @@ export const RecordChip = ({
         size={size}
         maxWidth={maxWidth}
         variant="plain"
+        lineClamp={lineClamp}
         startElement={
           isIconHidden ? null : (
             <AvatarOrIcon
@@ -98,6 +101,7 @@ export const RecordChip = ({
       maxWidth={maxWidth}
       weight={isBold ? 'medium' : 'regular'}
       aria-label={isLabelHidden ? label : undefined}
+      lineClamp={lineClamp}
       startElement={
         isIconHidden ? null : (
           <AvatarOrIcon

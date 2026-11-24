@@ -41,6 +41,7 @@ const StyledRecordChipContainer = styled.div`
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  min-width: 0;
 `;
 
 export const RecordBoardCardHeader = () => {
@@ -89,6 +90,7 @@ export const RecordBoardCardHeader = () => {
               objectNameSingular={objectMetadataItem.nameSingular}
               record={recordStore}
               variant="ghost"
+              lineClamp={2}
               onClick={() => {
                 activateBoardCard({ rowIndex, columnIndex });
                 unfocusBoardCard();
